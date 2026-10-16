@@ -11,4 +11,4 @@ Description: Tools to Simulate and analyze two-stage sample
 	     random sampling (without replacement) in both stages.
 LazyData: yes
 License: GPL-2 | GPL-3
-Imports: lme4, WeMix, svylme
+Imports: lme4, survey, WeMix, svylme

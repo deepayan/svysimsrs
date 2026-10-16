@@ -51,24 +51,21 @@ simulate_survey_population <-
     for (i in seq_len(M)) {
         n_cluster <- N_i[[i]]
         cid <- names(N_i)[[i]] # cluster id
-        if (dist == "normal") {
+        if (dist == "normal" || dist == "lognormal") {
             eps <- rnorm(n_cluster, mean = 0, sd = sigma)
         } else if (dist == "laplace") {
             ## Double exponential: mean = 0, sd = sigma (scale = sigma / sqrt(2))
             u <- runif(n_cluster, -0.5, 0.5)
             eps <- -sign(u) * (sigma / sqrt(2)) * log(1 - 2 * abs(u))
-        } else if (dist == "lognormal") {
-            ## Skewed/heavy-tailed centered error
-            raw <- rlnorm(n_cluster, meanlog = 0, sdlog = 0.5)
-            eps <- (raw - exp(0.5^2 / 2)) * (sigma / sqrt(exp(0.5^2) * (exp(0.5^2) - 1)))
         }
         
-        pop_list[[i]] <- data.frame(
-            cluster_id = cid,
-            unit_id = seq_len(n_cluster),
-            N_i = n_cluster,
-            Y = mu + b_i[i] + eps
-        )
+        pop_list[[i]] <-
+            data.frame(cluster_id = cid,
+                       unit_id = seq_len(n_cluster),
+                       N_i = n_cluster,
+                       Y = mu + b_i[i] + eps)
+
+        if (dist == "lognormal") pop_list[[i]]$Y <- exp(pop_list[[i]]$Y)
     }
     
     do.call(rbind, pop_list)

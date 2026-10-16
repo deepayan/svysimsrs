@@ -1,5 +1,8 @@
 
-
+import(lme4)
+import(WeMix)
+import(survey)
+import(svylme)
 
 
 export(simulate_survey_population,
@@ -10,7 +13,7 @@ export(simulate_survey_population,
 export(svysim)
 
 S3method(summary, svysim)
-S3method(plot, svysim)
+S3method(plot,    svysim)
 S3method(confint, svysim)
 S3method(summary, svysim)
 S3method(summary, svysim)

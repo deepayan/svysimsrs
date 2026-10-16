@@ -289,9 +289,9 @@ estimate_survey_mean <- function(dsample)
 
     rbind(HT = emean_HT(dsample, des),
           LME = emean_LME(dsample),
-          PML = emean_WLME(dsample), # fast
+          ## PML = emean_WLME(dsample), # fast
           ## OR
-          ## PML = emean_PML(dsample), # results differ from WLME but slow
+          PML = emean_PML(dsample), # results differ from WLME but slow
           PCL = emean_PCL(dsample, des),
           Naive = emean_Naive(dsample))
 
