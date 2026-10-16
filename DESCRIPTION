@@ -1,0 +1,14 @@
+Package: svysimsrs
+Version: 0.1-1
+Date: 2026-10-16
+Type: Package
+Title: Simulate Two-Stage Sample Surveys Using Simple Random Sampling
+Authors@R: person("Deepayan", "Sarkar", role = c("aut", "cre"),
+	          email = "deepayan.sarkar@r-project.org",
+	          comment = c(ORCID = "0000-0003-4107-1553"))
+Description: Tools to Simulate and analyze two-stage sample
+	     surveys. The only sampling scheme supported is simple
+	     random sampling (without replacement) in both stages.
+LazyData: yes
+License: GPL-2 | GPL-3
+Imports: lme4, WeMix, svylme

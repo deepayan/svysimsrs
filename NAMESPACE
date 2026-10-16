@@ -1,0 +1,19 @@
+
+
+
+
+export(simulate_survey_population,
+       simulate_survey_sample,
+       estimate_survey_mean,
+       run_single_simulation)
+
+export(svysim)
+
+S3method(summary, svysim)
+S3method(plot, svysim)
+S3method(confint, svysim)
+S3method(summary, svysim)
+S3method(summary, svysim)
+S3method(summary, svysim)
+
+
